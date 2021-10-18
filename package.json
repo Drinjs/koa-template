@@ -1,0 +1,48 @@
+{
+  "name": "koa-template",
+  "version": "1.0.0",
+  "description": "koa-template",
+  "main": "server/app.js",
+  "scripts": {
+    "test": "NODE_ENV=test mocha --harmony --reporter spec --require should */test.js",
+    "lint": "eslint .",
+    "start": "nodemon --delay 1.5 ./server/app.js"
+  },
+  "author": "drin zhu",
+  "license": "MIT",
+  "dependencies": {
+    "koa": "^2.13.3",
+    "koa-body": "^4.2.0",
+    "koa-bodyparser": "^4.3.0",
+    "koa-json": "^2.0.2",
+    "koa-logger": "^3.2.1",
+    "koa-router": "^10.1.1",
+    "mongoose": "^6.0.11"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^13.2.1",
+    "@commitlint/config-conventional": "^13.2.0",
+    "eslint": "^8.0.1",
+    "eslint-config-koa": "^2.0.2",
+    "eslint-config-prettier": "^8.3.0",
+    "husky": "^7.0.2",
+    "lint-staged": "^11.2.3",
+    "nodemon": "^2.0.13",
+    "prettier": "^2.4.1"
+  },
+  "gitHooks": {
+    "pre-commit": "lint-staged"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
+  "lint-staged": {
+    "*.{js,jsx,vue}": [
+      "prettier --write ./fe ./server",
+      "eslint --fix ./fe ./server"
+    ]
+  }
+}
