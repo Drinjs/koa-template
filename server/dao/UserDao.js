@@ -25,9 +25,7 @@ class UserDao {
   }
 
   static getUserlist() {
-    return util.query().then(res=> {
-      return res
-    })
+    return util.query()
   }
 
   userDelete(options) {
