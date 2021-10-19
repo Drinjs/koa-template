@@ -1,3 +1,4 @@
+const { resolve } = require("path");
 
 class DaoUtil {
   constructor (model) {
@@ -40,9 +41,14 @@ class DaoUtil {
     })
   }
 
-  // 修改
-  update (options) {
-    
+  // 修改 http://www.mongoosejs.net/docs/api.html#update_update
+  update (query, newVal, options={}) {
+    this.model.update(query, newVal, options, (err, res) => {
+      if(err) {
+        reject(err)
+      }
+      resolve(res)
+    })
   } 
 }
 module.exports = DaoUtil
