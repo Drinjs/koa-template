@@ -6,7 +6,6 @@ const config = require('./config/index')
 const koaJson = require('koa-json');    // get提交数据的中间件
 const bodyParser = require('koa-bodyparser'); // post提交数据中间件
 const koaBody = require('koa-body');   // 文件上传
-const http = require('http')
 // const router =  require('./router')
 const cors = require('koa-cors')
 
